@@ -1,0 +1,26 @@
+h1 Edit Record
+
+= simple_form_for @category do |f|
+
+	- if @category.errors.any?  
+      #error_explanation
+        h2
+          = pluralize(@category.errors.count, "error") 
+          | prohabited this caregory from being saved:
+  	
+  	
+      ul
+        - @category.errors.full_messages.each do |msg|
+          li= msg
+
+    
+    p  
+      = f.input :name 
+
+
+    p  
+      = f.input :categorytype 
+    
+
+    p
+      = f.submit
