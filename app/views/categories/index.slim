@@ -1,0 +1,16 @@
+
+h1 Listing Categories
+
+= link_to 'add category', new_category_path
+
+table class= "tabletable-hover" 
+  tr
+    th Title
+
+    th Text
+  
+ 
+  - @categories.each do |category|
+    tr
+      td= category.name
+      td= category.categorytype
