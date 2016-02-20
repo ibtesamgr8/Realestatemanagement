@@ -1,0 +1,38 @@
+h1 Listing Categories
+
+= link_to 'add plot', new_plot_path, class: "btn btn-primary"
+
+.container-fluid
+  .row
+    .col-md-2
+    .col-md-6
+
+      table.table.table-hover
+        tr
+          th Sr No.
+          th Plot No.
+          th Membership No.
+          th Corner
+          th Westopen
+          th Size-Sqy.
+          th Uer ID
+          th Category ID
+          th Description
+
+        = paginate @plots 
+        - @plots.each_with_index do |plot, index|
+          tr.success
+            td= index+1
+            td= plot.plot_number
+            td= plot.membership
+            td= plot.is_corner
+            td= plot.is_westopen
+            td= plot.size_of_plot
+            td= plot.user_id
+            td= plot.category_id
+            td= plot.desciption
+
+            td= link_to 'Edit', edit_plot_path(plot), class: "btn btn-success"
+            td= link_to 'Delete', plot_path(plot), method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-warning"
+
+= link_to 'Back', root_path, class: "btn btn-primary"  

@@ -11,11 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218162125) do
+ActiveRecord::Schema.define(version: 20160220160329) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.string   "categorytype"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "plots", force: :cascade do |t|
+    t.string   "plot_number"
+    t.string   "membership"
+    t.text     "desciption"
+    t.boolean  "is_corner"
+    t.boolean  "is_westopen"
+    t.integer  "category_id"
+    t.integer  "size_of_plot"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

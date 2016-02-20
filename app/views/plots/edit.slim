@@ -1,0 +1,45 @@
+br
+br
+br
+.well
+
+  = simple_form_for @plots do |f| 
+
+
+
+    - if @plots.errors.any?  
+      #error_explanation
+        h2
+          = pluralize(@plots.errors.count, "error") 
+          | prohabited this plot from being saved:
+    
+    
+      ul
+        - @plots.errors.full_messages.each do |msg|
+          li= msg
+
+    
+    p  
+      = f.input :plot_number
+    p
+      = f.input :membership
+    p
+      = f.input :is_corner
+    p
+      = f.input :is_westopen
+    p
+      = f.input :size_of_plot
+    
+    p 
+       /=f.collection_select :category_id, Category.all, :id, :categorytype,  :label => "Language"
+       = f.association :category, include_blank: false
+
+    p
+       =f.input :user_id, :readonly => true, :input_html => { :value => current_user.id } , :label => "User ID" 
+    p
+
+      = f.input :desciption 
+    
+
+    p
+      = f.submit

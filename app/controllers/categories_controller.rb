@@ -45,6 +45,6 @@ private
 	def category_params	
     params.require(:category).permit(:name, :categorytype)
     end
-
+    
 
 end
