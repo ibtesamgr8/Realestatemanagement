@@ -16,6 +16,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'kaminari'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro'

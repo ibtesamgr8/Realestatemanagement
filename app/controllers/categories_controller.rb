@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 	
 	def index
-		@categories = Category.all
+		@categories = Category.all.page(params[:page]).per(2)
 	end
 	
 	def new
