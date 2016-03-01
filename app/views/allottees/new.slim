@@ -1,0 +1,70 @@
+br
+br
+br
+.container-fluid
+  .row
+    .col-md-2
+    .col-md-6
+      
+      h1= @plotid
+
+      = simple_form_for @allotee do |f| 
+
+
+
+        - if @allotee.errors.any?  
+          #error_explanation
+            h2
+              = pluralize(@allotee.errors.count, "error") 
+              | prohabited this plot from being saved:
+      	
+      	
+          ul
+            - @allotee.errors.full_messages.each do |msg|
+              li= msg
+            
+        p 
+          = f.input :registration_no
+        p  
+          = f.input :name
+        p
+          = f.input :cnic_no
+        p
+          = f.input :cell_no
+        p
+          = f.input :email_id
+        p
+          = f.input :curren_address
+        p
+          = f.input :other_address
+        p
+          = f.input :registration_date, input_html: { :id => 'datetimepicker' }
+        p
+          = f.input :description,  :label => false
+        p
+          = f.input :status  
+        p
+          = f.input :name_of_kin
+        p
+          = f.input :kin_cnic
+        p
+          = f.input :kin_address
+        p
+          = f.input :kin_cell_no
+        p
+          = f.input :relation_with_kin
+        p 
+           /=f.collection_select :category_id, Category.all, :id, :categorytype,  :label => "Language"
+           = f.input :plot_id,  input_html: {value: @plotid, readonly:  true}
+        p 
+          
+           = f.input :docs_name
+
+        p   
+           
+         
+      
+        p
+          = f.submit
+        p
+          = link_to "Cancel", :back

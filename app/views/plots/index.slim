@@ -19,20 +19,26 @@ h1 Listing Categories
           th Category ID
           th Description
 
-        = paginate @plots 
+        / = paginate @plots 
         - @plots.each_with_index do |plot, index|
           tr.success
-            td= index+1
-            td= plot.plot_number
-            td= plot.membership
-            td= plot.is_corner
-            td= plot.is_westopen
-            td= plot.size_of_plot
-            td= plot.user_id
-            td= plot.category_id
-            td= plot.desciption
+            
+            td.plot_link data-link="plot.id"= index
+            td.plot_link data-link="plot.id"
+              = link_to allottees_path(plot_id: plot.id), remote: true do
+                = plot.plot_number
+            td.plot_link data-link="plot.id"= plot.membership
+            td.plot_link data-link="plot.id"= plot.is_corner
+            td.plot_link data-link="plot.id"= plot.is_westopen
+            td.plot_link data-link="plot.id"= plot.size_of_plot
+            td.plot_link data-link="plot.id"= plot.user_id
+            td.plot_link data-link="plot.id"= plot.category_id
+            td.plot_link data-link="plot.id"= plot.desciption
 
+            td= link_to 'Add Allottee', new_allottee_path(plot_id: plot.id), class: "btn btn-success"
             td= link_to 'Edit', edit_plot_path(plot), class: "btn btn-success"
             td= link_to 'Delete', plot_path(plot), method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-warning"
 
-= link_to 'Back', root_path, class: "btn btn-primary"  
+= link_to 'Back', root_path, class: "btn btn-primary"
+
+.plot_allottees

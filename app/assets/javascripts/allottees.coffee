@@ -2,9 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->	
-	
-	$(".plot_link").click ->
-	  plot_id = this.getAttribute("data-link")
-	  $.post '/plots/plot_allottees', plot_id: plot_id
-	  return
+$ ->
+	$('#datetimepicker').datetimepicker();
+
+	addMoreFiles = ->
+  	
+    $('#new_allottee').append '<input type="file" name="files[]" />'
+  	return

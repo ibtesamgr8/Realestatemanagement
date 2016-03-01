@@ -1,0 +1,27 @@
+
+- if allottees.any?
+
+  table.CSSTableGenerator
+    tr
+      td Reg.No
+      td Name
+      td CNIC
+      td Cell NO
+      td Email
+      td Reg. Date
+      td Status
+      td Name of Kin
+  
+    - allottees.each do |a|
+      tr
+        td = a.registration_no 
+        td = a.name
+        td = a.cnic_no
+        td = a.cell_no
+        td = a.email_id
+        td = a.registration_date
+        td = a.status
+        td = a.name_of_kin
+- else
+  | No record found      
+ 

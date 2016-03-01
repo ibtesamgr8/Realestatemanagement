@@ -42,6 +42,13 @@ before_action :authenticate_user!
 		
 	end
 
+	def plot_allottees
+		@allotees = Allottee.where(plot_id: params[:plot_id])
+
+		respond_to do |format|
+			format.js
+		end
+	end
 
 
 

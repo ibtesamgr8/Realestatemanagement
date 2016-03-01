@@ -11,13 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220160329) do
+ActiveRecord::Schema.define(version: 20160226171953) do
+
+  create_table "allottees", force: :cascade do |t|
+    t.string   "registration_no"
+    t.string   "name"
+    t.string   "cnic_no"
+    t.string   "cell_no"
+    t.string   "email_id"
+    t.string   "curren_address"
+    t.string   "other_address"
+    t.string   "registration_date"
+    t.string   "description"
+    t.string   "status"
+    t.string   "name_of_kin"
+    t.string   "kin_cnic"
+    t.string   "kin_address"
+    t.string   "kin_cell_no"
+    t.string   "relation_with_kin"
+    t.integer  "plot_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.string   "categorytype"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "docs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "attachment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "plots", force: :cascade do |t|
@@ -48,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160220160329) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.integer  "role"
+    t.string   "docs"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
