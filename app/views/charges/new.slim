@@ -1,0 +1,33 @@
+br
+br
+br
+.well
+  = simple_form_for @charges do |f| 
+
+
+
+    - if @charges.errors.any?  
+      #error_explanation
+        h2
+          = pluralize(@charge.errors.count, "error") 
+          | prohabited this caregory from being saved:
+  	
+  	
+      ul
+        - @charge.errors.full_messages.each do |msg|
+          li= msg
+
+    
+    p  
+      = f.input :name 
+
+    p  
+      = f.input :char_date
+    p  
+      =  amount 
+    
+
+    p
+      = f.submit
+      
+    p = link_to "Cancel", :back

@@ -4,7 +4,8 @@ class Allottee < ActiveRecord::Base
 	validates :name, presence: true
 	validates :cnic_no, presence: true
 	validates :curren_address, presence: true
-
+	has_many  :charges 
+	
 	before_create :update_allottee_status
 	attr_accessor :docs_name
 

@@ -1,14 +1,14 @@
 class DocsController < ApplicationController
   def index
-      @resumes = Resume.all
+      @resumes = Doc.all
    end
    
    def new
-      @resume = Resume.new
+      @resume = Doc.new
    end
    
    def create
-      @resume = Resume.new(resume_params)
+      @resume = Doc.new(resume_params)
       
       if @resume.save
          redirect_to resumes_path, notice: "The resume #{@resume.name} has been uploaded."
@@ -19,7 +19,7 @@ class DocsController < ApplicationController
    end
    
    def destroy
-      @resume = Resume.find(params[:id])
+      @resume = Doc.find(params[:id])
       @resume.destroy
       redirect_to resumes_path, notice:  "The resume #{@resume.name} has been deleted."
    end

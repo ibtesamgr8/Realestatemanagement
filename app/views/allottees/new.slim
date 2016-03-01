@@ -56,14 +56,7 @@ br
         p 
            /=f.collection_select :category_id, Category.all, :id, :categorytype,  :label => "Language"
            = f.input :plot_id,  input_html: {value: @plotid, readonly:  true}
-        p 
-          
-           = f.input :docs_name
-
-        p   
-           
-         
-      
+        
         p
           = f.submit
         p
